@@ -1,0 +1,14 @@
+# hiera.yaml --- hiera setup for resolv_conv
+---
+version: 5
+
+defaults:
+  datadir: data
+  data_hash: yaml_data
+
+hierarchy:
+  - name: "OS family"
+    path: "%{facts.os.family}.yaml"
+
+  - name: "common"
+    path: "common.yaml"

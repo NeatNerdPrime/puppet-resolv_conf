@@ -1,0 +1,21 @@
+# This file is managed by Puppet. DO NOT EDIT.
+
+<% unless empty($nameservers) { -%>
+<%   $nameservers.each | $nameserver | { -%>
+nameserver <%= $nameserver %>
+<%   } -%>
+<% } -%>
+<% unless empty($domainname) { -%>
+domain <%= $domainname %>
+<% } -%>
+<% unless empty($searchlist) { -%>
+search <%= join($searchlist, ' ') %>
+<% } -%>
+<% unless empty($sortlist) { -%>
+sortlist <%= join($sortlist, ' ') %>
+<% } -%>
+<% unless empty($options) { -%>
+<%   $options.each | $option | { -%>
+options <%= $option %>
+<%   } -%>
+<% } -%>

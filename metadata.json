@@ -1,0 +1,33 @@
+{
+  "name": "stm-resolv_conf",
+  "version": "1.0.0",
+  "author": "stm",
+  "summary": "Manage resolv.conf.",
+  "license": "BSD-2-Clause",
+  "source": "https://github.com/smoeding/puppet-resolv_conf.git",
+  "project_page": "https://github.com/smoeding/puppet-resolv_conf",
+  "issues_url": "https://github.com/smoeding/puppet-resolv_conf/issues",
+  "data_provider": null,
+  "tags": [ "DNS", "resolver", "nameserver" ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.22.0"
+    }
+  ],
+  "operatingsystem_support": [
+    { "operatingsystem": "CentOS" },
+    { "operatingsystem": "Debian" },
+    { "operatingsystem": "FreeBSD" },
+    { "operatingsystem": "OracleLinux" },
+    { "operatingsystem": "RedHat" },
+    { "operatingsystem": "SLES" },
+    { "operatingsystem": "Ubuntu" }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.0.0 < 6.0.0"
+    }
+  ]
+}
