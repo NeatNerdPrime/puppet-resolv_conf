@@ -64,7 +64,20 @@ resolv_conf::nameservers:
   - 9.9.9.9
 ```
 
-### Create resolver config file with specific nameservers & options
+### Specify a remote nameserver and use local domain for unqualified hostnames
+
+The following configuration will configure a remote nameserver and use the name of the local domain when unqualified hostnames are queried.
+
+```puppet
+class { resolv_conf':
+  nameservers => [ '9.9.9.9', ],
+  domain      => $::domain,
+}
+```
+
+If your host is based in the `example.net` domain, then a lookup for the hostname `server` will query the nameserver for `server.example.net`.
+
+### Specify nameservers & options
 
 This setup creates a configuration file with the given nameservers and will also set additional opions to enable nameserver rotation and set a specific timeout.
 
@@ -75,7 +88,7 @@ class { resolv_conf':
 }
 ```
 
-### Create resolver config file where a local nameserver is prefered
+### Prefer a local nameserver
 
 The following setup will create a configuration where the nameserver at `127.0.0.1 ` is queried first and only then the additional nameservers are used.
 
@@ -85,6 +98,8 @@ class { resolv_conf':
   prepend_local_nameserver => true,
 }
 ```
+
+**Note**: This module does not configure a local nameserver that will answer queries on `127.0.0.1`. You will have to use a different Puppet module to manage the nameserver.
 
 ## Reference
 
