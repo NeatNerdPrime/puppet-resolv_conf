@@ -68,7 +68,7 @@ resolv_conf::nameservers:
 
 ### Public Classes
 
-#### Class: `resolv_conf_`
+#### Class: `resolv_conf`
 
 Performs the basic setup and creates the `resolv.conf` file.
 
