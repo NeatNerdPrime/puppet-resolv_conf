@@ -113,27 +113,64 @@ Performs the basic setup and creates the `resolv.conf` file.
 
 ##### `nameservers`
 
-An array of nameservers that the resolver should query for hostname lookups. A maximum number of three nameservers can be specified. The default value is a single element array containing `127.0.0.1`.
+An array of nameservers that the resolver should query for hostname lookups. A maximum number of three nameservers can be specified. The default value is a single element array containing `127.0.0.1`. Example:
+
+```puppet
+class { resolv_conf':
+  nameservers => [ '8.8.8.8', '8.8.4.4', ],
+  options     => [ 'rotate', 'timeout:2, ],
+}
+```
 
 ##### `domainname`
 
-A string that is the primary domain of the host. Unqualified lookups will append this string to the query host. This parameter cannot be used together with `searchlist`.
+A string that is the primary domain of the host. Unqualified lookups will append this string to the query host. This parameter cannot be used together with `searchlist`. Example:
+
+```puppet
+class { resolv_conf':
+  domainname => 'example.com',
+}
+```
 
 ##### `searchlist`
 
-An array of domains that the resolver will search. A maximum of 6 domains can be specified. This parameter cannot be used together with `domainname`.
+An array of domains that the resolver will search. A maximum of 6 domains can be specified. This parameter cannot be used together with `domainname`. Example:
+
+```puppet
+class { resolv_conf':
+  searchlist => [ 'example.com', 'example.net', ],
+}
+```
 
 ##### `sortlist`
 
-An array of up to 10 IP/netmask items. These are used by the resolver to sort the result in case multiple addresses are returned.
+An array of up to 10 IP/netmask items. These are used by the resolver to sort the result in case multiple addresses are returned. Example:
+
+```puppet
+class { resolv_conf':
+  sortlist => [ '192.0.2.0/24', '198.51.100.0/24', '203.0.113.0/24', ],
+}
+```
 
 ##### `options`
 
-An array of option settings for the resolver. Each array element must be the option to include in the configuration. The following options are recognized: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`, `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`, `no-check-names`, `rotate`, `single-request`, `single-request-reopen`. The first three options are expected to use a numeric value for `n` after the colon. Check the man page `resolv.conf(5)` for details.
+An array of option settings for the resolver. Each array element must be the option to include in the configuration. The following options are recognized: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`, `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`, `no-check-names`, `rotate`, `single-request`, `single-request-reopen`. The first three options are expected to use a numeric value for `n` after the colon. Check the man page `resolv.conf(5)` for details. Example:
+
+```puppet
+class { resolv_conf':
+  options => [ 'rotate', 'timeout:2, ],
+}
+```
 
 ##### `prepend_local_nameserver`
 
-A boolean value that determines if a local DNS server should be used first. Setting this parameter to `true` will add `127.0.0.1` before the servers given as `nameservers`. The last nameserver is silently ignored if this would create a configuration with more than three servers. The default value is `false`.
+A boolean value that determines if a local DNS server should be used first. Setting this parameter to `true` will add `127.0.0.1` before the servers given as `nameservers`. The last nameserver is silently ignored if this would create a configuration with more than three servers. The default value is `false`. Example:
+
+```puppet
+class { resolv_conf':
+  prepend_local_nameserver => true,
+}
+```
 
 ##### `resolv_conf_file`
 
