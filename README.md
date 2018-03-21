@@ -118,7 +118,6 @@ An array of nameservers that the resolver should query for hostname lookups. A m
 ```puppet
 class { resolv_conf':
   nameservers => [ '8.8.8.8', '8.8.4.4', ],
-  options     => [ 'rotate', 'timeout:2, ],
 }
 ```
 
