@@ -147,9 +147,11 @@ An array of up to 10 IP/netmask items. These are used by the resolver to sort th
 
 ```puppet
 class { resolv_conf':
-  sortlist => [ '192.0.2.0/24', '198.51.100.0/24', '203.0.113.0/24', ],
+  sortlist => [ '198.51.100.0/255.255.255.0', ],
 }
 ```
+
+A DNS query that returns more than one IP address for a host would reorder the IPs so that an address from the `198.51.100.0/24` network would be prefered.
 
 ##### `options`
 
@@ -157,9 +159,12 @@ An array of option settings for the resolver. Each array element must be the opt
 
 ```puppet
 class { resolv_conf':
-  options => [ 'rotate', 'timeout:2, ],
+  nameservers => [ '8.8.8.8', '8.8.4.4', ],
+  options     => [ 'rotate', ],
 }
 ```
+
+This configuration would access the two given nameservers in a round-robin fashion.
 
 ##### `prepend_local_nameserver`
 
@@ -167,9 +172,12 @@ A boolean value that determines if a local DNS server should be used first. Sett
 
 ```puppet
 class { resolv_conf':
+  nameservers              => [ '8.8.8.8', ],
   prepend_local_nameserver => true,
 }
 ```
+
+This configuration would query the nameserver on `127.0.0.1` first and only then try `8.8.8.8`.
 
 ##### `resolv_conf_file`
 
