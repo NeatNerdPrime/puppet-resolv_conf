@@ -64,6 +64,28 @@ resolv_conf::nameservers:
   - 9.9.9.9
 ```
 
+### Create resolver config file with specific nameservers & options
+
+This setup creates a configuration file with the given nameservers and will also set additional opions to enable nameserver rotation and set a specific timeout.
+
+```puppet
+class { resolv_conf':
+  nameservers => [ '8.8.8.8', '8.8.4.4', ],
+  options     => [ 'rotate', 'timeout:2, ],
+}
+```
+
+### Create resolver config file where a local nameserver is prefered
+
+The following setup will create a configuration where the nameserver at `127.0.0.1 ` is queried first and only then the additional nameservers are used.
+
+```puppet
+class { resolv_conf':
+  nameservers              => [ '8.8.8.8', '8.8.4.4', ],
+  prepend_local_nameserver => true,
+}
+```
+
 ## Reference
 
 ### Public Classes
