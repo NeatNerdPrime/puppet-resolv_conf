@@ -155,7 +155,7 @@ A DNS query that returns more than one IP address for a host would reorder the I
 
 ##### `options`
 
-An array of option settings for the resolver. Each array element must be the option to include in the configuration. The following options are recognized: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`, `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`, `no-check-names`, `rotate`, `single-request`, `single-request-reopen`. The first three options are expected to use a numeric value for `n` after the colon. Check the man page `resolv.conf(5)` for details. Example:
+An array of option settings for the resolver. Each array element must be the option to include in the configuration. The following options are allowed: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`, `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`, `no-check-names`, `rotate`, `single-request`, `single-request-reopen`. The first three options are expected to use a numeric value for `n` after the colon. Check the man page `resolv.conf(5)` for details. Example:
 
 ```puppet
 class { resolv_conf':
@@ -177,7 +177,7 @@ class { resolv_conf':
 }
 ```
 
-This configuration would query the nameserver on `127.0.0.1` first and only then try `8.8.8.8`.
+This configuration would query the nameserver on `127.0.0.1` first and only then try `8.8.8.8`. You can use this parameter to use a common list of nameservers (e.g. in `common.yaml`) and add a local nameserver to the front of the list when needed (e.g. in the node specific Hiera configuration). In this case the `rotate` option (see above) does not make a lot of sense.
 
 ##### `resolv_conf_file`
 
