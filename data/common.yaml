@@ -1,8 +1,11 @@
 # common.yaml --- Common parameters for resolv_conf
 ---
+
 resolv_conf::resolv_conf_file: /etc/resolv.conf
+
 resolv_conf::owner: 'root'
 resolv_conf::group: 'root'
 resolv_conf::mode: '0644'
+
 resolv_conf::nameservers:
   - '127.0.0.1'

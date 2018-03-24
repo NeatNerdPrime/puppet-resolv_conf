@@ -1,0 +1,4 @@
+# FreeBSD.yaml --- FreeBSD parameters for resolv_conf
+---
+
+resolv_conf::group: 'wheel'
