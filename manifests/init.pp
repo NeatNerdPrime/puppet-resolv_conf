@@ -112,8 +112,9 @@ class resolv_conf(
   $options.each |$option| {
     case $option {
       /^ndots:[0-9]+$/, /^timeout:[0-9]+$/, /^attempts:[1-5]$/,
+      /^reload-period:[0-9]+$/,
       'debug', 'edns0', 'inet6', 'ip6-bytestring', 'ip6-dotint',
-      'no-ip6-dotint', 'no-check-names', 'rotate',
+      'no-ip6-dotint', 'no-check-names', 'no_tld_query', 'rotate',
       'single-request', 'single-request-reopen': { }
       default: {
         fail("Invalid option: ${option}")
