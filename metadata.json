@@ -1,6 +1,6 @@
 {
   "name": "stm-resolv_conf",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "stm",
   "summary": "Manage /etc/resolv.conf",
   "license": "BSD-2-Clause",
