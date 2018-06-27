@@ -9,9 +9,9 @@
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
 3. [Setup - The basics of getting started with resolv_conf](#setup)
-	* [What resolv_conf affects](#what-resolv_conf-affects)
-	* [Setup requirements](#setup-requirements)
-	* [Beginning with resolv_conf](#beginning-with-resolv_conf)
+    * [What resolv_conf affects](#what-resolv_conf-affects)
+    * [Setup requirements](#setup-requirements)
+    * [Beginning with resolv_conf](#beginning-with-resolv_conf)
 4. [Usage - Configuration options and additional functionality](#usage)
 5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 6. [Development - Guide for contributing to the module](#development)
@@ -69,7 +69,7 @@ resolv_conf::nameservers:
 The following configuration will configure a remote nameserver and use the name of the local domain when unqualified hostnames are queried.
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers => [ '9.9.9.9', ],
   domain      => $::domain,
 }
@@ -82,7 +82,7 @@ If your host is based in the `example.net` domain, then a lookup for the hostnam
 This setup creates a configuration file with the given nameservers and will also set additional opions to enable nameserver rotation and set a specific timeout.
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers => [ '8.8.8.8', '8.8.4.4', ],
   options     => [ 'rotate', 'timeout:2, ],
 }
@@ -93,7 +93,7 @@ class { resolv_conf':
 The following setup will create a configuration where the nameserver at `127.0.0.1 ` is queried first and only then the additional nameservers are used.
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers              => [ '8.8.8.8', '8.8.4.4', ],
   prepend_local_nameserver => true,
 }
@@ -116,7 +116,7 @@ Performs the basic setup and creates the `resolv.conf` file.
 An array of nameservers that the resolver should query for hostname lookups. A maximum number of three nameservers can be specified. The default value is a single element array containing `127.0.0.1`. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers => [ '8.8.8.8', '8.8.4.4', ],
 }
 ```
@@ -126,7 +126,7 @@ class { resolv_conf':
 A string that is the primary domain of the host. Unqualified lookups will append this string to the query host. This parameter cannot be used together with `searchlist`. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   domainname => 'example.com',
 }
 ```
@@ -136,7 +136,7 @@ class { resolv_conf':
 An array of domains that the resolver will search. A maximum of 6 domains can be specified. This parameter cannot be used together with `domainname`. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   searchlist => [ 'example.com', 'example.net', ],
 }
 ```
@@ -146,7 +146,7 @@ class { resolv_conf':
 An array of up to 10 IP/netmask items. These are used by the resolver to sort the result in case multiple addresses are returned. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   sortlist => [ '198.51.100.0/255.255.255.0', ],
 }
 ```
@@ -158,7 +158,7 @@ A DNS query that returns more than one IP address for a host would reorder the I
 An array of option settings for the resolver. Each array element must be the option to include in the configuration. The following options are allowed: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`, `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`, `no-check-names`, `rotate`, `single-request`, `single-request-reopen`. The first three options are expected to use a numeric value for `n` after the colon. Check the man page `resolv.conf(5)` for details. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers => [ '8.8.8.8', '8.8.4.4', ],
   options     => [ 'rotate', ],
 }
@@ -171,7 +171,7 @@ This configuration would access the two given nameservers in a round-robin fashi
 A boolean value that determines if a local DNS server should be used first. Setting this parameter to `true` will add `127.0.0.1` before the servers given as `nameservers`. The last nameserver is silently ignored if this would create a configuration with more than three servers. The default value is `false`. Example:
 
 ```puppet
-class { resolv_conf':
+class { 'resolv_conf':
   nameservers              => [ '8.8.8.8', ],
   prepend_local_nameserver => true,
 }
