@@ -61,7 +61,7 @@ You can also use Hiera to create this configuration.
 
 ```
 resolv_conf::nameservers:
-  - 9.9.9.9
+  - '9.9.9.9'
 ```
 
 ### Specify a remote nameserver and use local domain for unqualified hostnames
@@ -84,7 +84,7 @@ This setup creates a configuration file with the given nameservers and will also
 ```puppet
 class { 'resolv_conf':
   nameservers => [ '8.8.8.8', '8.8.4.4', ],
-  options     => [ 'rotate', 'timeout:2, ],
+  options     => [ 'rotate', 'timeout:2', ],
 }
 ```
 
