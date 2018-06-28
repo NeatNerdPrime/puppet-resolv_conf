@@ -7,8 +7,6 @@
   "source": "https://github.com/smoeding/puppet-resolv_conf.git",
   "project_page": "https://github.com/smoeding/puppet-resolv_conf",
   "issues_url": "https://github.com/smoeding/puppet-resolv_conf/issues",
-  "data_provider": null,
-  "tags": [ "DNS", "resolver", "nameserver" ],
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -16,18 +14,40 @@
     }
   ],
   "operatingsystem_support": [
-    { "operatingsystem": "CentOS" },
-    { "operatingsystem": "Debian" },
-    { "operatingsystem": "FreeBSD" },
-    { "operatingsystem": "OracleLinux" },
-    { "operatingsystem": "RedHat" },
-    { "operatingsystem": "SLES" },
-    { "operatingsystem": "Ubuntu" }
+    {
+      "operatingsystem": "CentOS"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "FreeBSD"
+    },
+    {
+      "operatingsystem": "OracleLinux"
+    },
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "SLES"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
   ],
   "requirements": [
     {
       "name": "puppet",
       "version_requirement": ">= 4.0.0 < 6.0.0"
     }
-  ]
+  ],
+  "tags": [
+    "DNS",
+    "resolver",
+    "nameserver"
+  ],
+  "pdk-version": "1.6.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates",
+  "template-ref": "heads/master-0-gc87eee3"
 }
