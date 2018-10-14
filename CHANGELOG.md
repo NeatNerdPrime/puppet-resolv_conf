@@ -1,3 +1,9 @@
+## 2018-10-14 - Release 1.1.0
+
+### Summary
+
+Support Puppet 6 and Stdlib 5.x
+
 ## 2018-06-28 - Release 1.0.2
 
 ### Summary
