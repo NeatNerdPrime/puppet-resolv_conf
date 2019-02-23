@@ -1,5 +1,3 @@
-# init.pp --- Class resolv_conf
-#
 # @summary Manage the DNS resolver configuration file /etc/resolv.conf
 #
 # @example Create resolver config file using default parameters
@@ -9,14 +7,14 @@
 # @example Create resolver config file with specific nameservers
 #
 #   class { resolv_conf':
-#     nameservers => [ '8.8.8.8', '8.8.4.4', ],
+#     nameservers              => [ '8.8.8.8', '8.8.4.4', ],
 #   }
 #
 # @example Create resolver config file with specific nameservers & options
 #
 #   class { resolv_conf':
-#     nameservers => [ '8.8.8.8', '8.8.4.4', ],
-#     options     => [ 'rotate', 'timeout:2, ],
+#     nameservers              => [ '8.8.8.8', '8.8.4.4', ],
+#     options                  => [ 'rotate', 'timeout:2, ],
 #   }
 #
 # @example Create resolver config file where a local nameserver is prefered
@@ -29,17 +27,17 @@
 # @param nameservers
 #   An array of nameservers that the resolver should query for hostname
 #   lookups. A maximum number of three nameservers can be specified. The
-#   default value is a single element array containing '127.0.0.1'.
+#   default value is a single element array containing `127.0.0.1`.
 #
 # @param domainname
 #   A string that is the primary domain of the host. Unqualified lookups will
 #   append this string to the query host. This parameter cannot be used
-#   together with 'searchlist'.
+#   together with `searchlist`.
 #
 # @param searchlist
 #   An array of domains that the resolver will search. A maximum of 6 domains
 #   can be specified. This parameter cannot be used together with
-#   'domainname'.
+#   `domainname`.
 #
 # @param sortlist
 #   An array of up to 10 IP/netmask items. These are used by the resolver to
@@ -48,33 +46,34 @@
 # @param options
 #   An array of option settings for the resolver. Each array element must be
 #   the option to include in the configuration. The following options are
-#   recognized: 'ndots:n', 'timeout:n', 'attempts:n', 'debug', 'edns0',
-#   'inet6', 'ip6-bytestring', 'ip6-dotint', 'no-ip6-dotint',
-#   'no-check-names', 'rotate', 'single-request', 'single-request-reopen'.
-#   The first three options are expected to use a numeric value for 'n' after
-#   the colon. Check the man page 'resolv.conf(5)' for details.
+#   recognized: `ndots:n`, `timeout:n`, `attempts:n`, `debug`, `edns0`,
+#   `inet6`, `ip6-bytestring`, `ip6-dotint`, `no-ip6-dotint`,
+#   `no-check-names`, `rotate`, `single-request`, `single-request-reopen`.
+#   The first three options are expected to use a numeric value for `n` after
+#   the colon. Check the man page `resolv.conf(5)` for details.
 #
 # @param prepend_local_nameserver
 #   A boolean value that determines if a local DNS server should be used
-#   first. Setting this parameter to 'true' will add '127.0.0.1' before the
-#   servers given as 'nameservers'. The last nameserver is silently ignored
+#   first. Setting this parameter to `true` will add `127.0.0.1` before the
+#   servers given as `nameservers`. The last nameserver is silently ignored
 #   if this would create a configuration with more than three servers. The
-#   default value is 'false'.
+#   default value is `false`.
 #
 # @param resolv_conf_file
 #   The absolute path of the file to manage. The default is
-#   '/etc/resolv.conf'. In general it does not make sense to change this
+#   `/etc/resolv.conf`. In general it does not make sense to change this
 #   parameter.
 #
 # @param owner
-#   The owner of the file '/etc/resolv.conf'. The default is 'root'.
+#   The owner of the file `/etc/resolv.conf`. The default is `root`.
 #
 # @param group
-#   The group of the file '/etc/resolv.conf'. The default is 'root' on Linux
-#   and 'wheel' on FreeBSD.
+#   The group of the file `/etc/resolv.conf`. The default is `root` on Linux
+#   and `wheel` on FreeBSD.
 #
 # @param mode
-#   The file mode of the file '/etc/resolv.conf'. The default is '0644'.
+#   The file mode of the file `/etc/resolv.conf`. The default is `0644`.
+#
 #
 class resolv_conf(
   Array[String,0,3]          $nameservers,
