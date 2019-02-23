@@ -1,3 +1,7 @@
+## 2019-02-23 - Release 1.2.0
+
+Add documentation in the REFERENCE.md file.
+
 ## 2018-10-14 - Release 1.1.0
 
 ### Summary
