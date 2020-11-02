@@ -103,7 +103,7 @@ class { 'resolv_conf':
 
 ## Reference
 
-See [REFERENCE.md](https://github.com/smoeding/puppet-resolv_conf_/blob/master/REFERENCE.md)
+See [REFERENCE.md](https://github.com/smoeding/puppet-resolv_conf/blob/master/REFERENCE.md)
 
 ## Development
 
