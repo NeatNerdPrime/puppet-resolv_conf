@@ -1,6 +1,6 @@
 # resolv_conf
 
-[![Build Status](https://travis-ci.org/smoeding/puppet-resolv_conf.svg?branch=master)](https://travis-ci.org/smoeding/puppet-resolv_conf)
+[![Build Status](https://travis-ci.com/smoeding/puppet-resolv_conf.svg?branch=master)](https://travis-ci.com/smoeding/puppet-resolv_conf)
 [![Puppet Forge](http://img.shields.io/puppetforge/v/stm/resolv_conf.svg)](https://forge.puppetlabs.com/stm/resolv_conf)
 [![License](https://img.shields.io/github/license/smoeding/puppet-resolv_conf.svg)](https://raw.githubusercontent.com/smoeding/puppet-resolv_conf/master/LICENSE)
 
