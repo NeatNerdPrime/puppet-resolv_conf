@@ -53,7 +53,7 @@ You can use class parameters to use a customized configuration.
 
 ```puppet
 class { 'resolv_conf':
-  nameserves => [ '9.9.9.9', ],
+  nameservers => [ '9.9.9.9', ],
 }
 ```
 
