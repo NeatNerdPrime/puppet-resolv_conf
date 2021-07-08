@@ -1,6 +1,6 @@
 # resolv_conf
 
-[![Build Status](https://travis-ci.com/smoeding/puppet-resolv_conf.svg?branch=master)](https://travis-ci.com/smoeding/puppet-resolv_conf)
+[![Build Status](https://github.com/smoeding/puppet-resolv_conf/actions/workflows/CI.yaml/badge.svg)](https://github.com/smoeding/puppet-resolv_conf/actions/workflows/CI.yaml)
 [![Puppet Forge](http://img.shields.io/puppetforge/v/stm/resolv_conf.svg)](https://forge.puppetlabs.com/stm/resolv_conf)
 [![License](https://img.shields.io/github/license/smoeding/puppet-resolv_conf.svg)](https://raw.githubusercontent.com/smoeding/puppet-resolv_conf/master/LICENSE)
 
@@ -24,7 +24,7 @@ Manage the `/etc/resolv.conf` on Linux and FreeBSD.
 
 The module manages the DNS resolver configuration file. It allows setting the values for the `nameserver`, `domain`, `search`, `sortlist` and `options` confguration settings. The following restrictions are enforced by the module:
 
-  * Up to 3 nameservers may be listed.
+  * Up to 3 name servers may be listed.
   * Up to 6 items may be included in the search list.
   * Up to 10 items may be included in the sortlist.
   * The domain and search keywords are mutually exclusive.
@@ -41,7 +41,7 @@ The module uses the Puppet `stdlib` module.
 
 ### Beginning with resolv_conf
 
-Declare the class to create a configuration that uses only a local nameserver on `127.0.0.1`.
+Declare the class to create a configuration that uses only a local name server on `127.0.0.1`.
 
 ```puppet
 class { 'resolv_conf': }
@@ -64,9 +64,9 @@ resolv_conf::nameservers:
   - '9.9.9.9'
 ```
 
-### Specify a remote nameserver and use local domain for unqualified hostnames
+### Specify a remote name server and use local domain for unqualified hostnames
 
-The following configuration will configure a remote nameserver and use the name of the local domain when unqualified hostnames are queried.
+The following configuration will configure a remote name server and use the name of the local domain when unqualified hostnames are queried.
 
 ```puppet
 class { 'resolv_conf':
@@ -75,11 +75,11 @@ class { 'resolv_conf':
 }
 ```
 
-If your host is based in the `example.net` domain, then a lookup for the hostname `server` will query the nameserver for `server.example.net`.
+If your host is based in the `example.net` domain, then a lookup for the hostname `server` will query the name server for `server.example.net`.
 
-### Specify nameservers & options
+### Specify name servers & options
 
-This setup creates a configuration file with the given nameservers and will also set additional opions to enable nameserver rotation and set a specific timeout.
+This setup creates a configuration file with the given name servers and will also set additional opions to enable name server rotation and set a specific timeout.
 
 ```puppet
 class { 'resolv_conf':
@@ -88,9 +88,9 @@ class { 'resolv_conf':
 }
 ```
 
-### Prefer a local nameserver
+### Prefer a local name server
 
-The following setup will create a configuration where the nameserver at `127.0.0.1 ` is queried first and only then the additional nameservers are used.
+The following setup will create a configuration where the name server at `127.0.0.1 ` is queried first and only then the additional name servers are used.
 
 ```puppet
 class { 'resolv_conf':
@@ -99,7 +99,7 @@ class { 'resolv_conf':
 }
 ```
 
-**Note**: This module does not configure a local nameserver that will answer queries on `127.0.0.1`. You will have to use a different Puppet module to manage the nameserver.
+**Note**: This module does not configure a local name server that will answer queries on `127.0.0.1`. You will have to use a different Puppet module to manage the name server.
 
 ## Reference
 

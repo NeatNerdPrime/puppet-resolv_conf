@@ -4,20 +4,20 @@
 #
 #   class { resolv_conf': }
 #
-# @example Create resolver config file with specific nameservers
+# @example Create resolver config file with specific name servers
 #
 #   class { resolv_conf':
-#     nameservers              => [ '8.8.8.8', '8.8.4.4', ],
+#     nameservers => [ '8.8.8.8', '8.8.4.4', ],
 #   }
 #
-# @example Create resolver config file with specific nameservers & options
+# @example Create resolver config file with specific name servers & options
 #
 #   class { resolv_conf':
-#     nameservers              => [ '8.8.8.8', '8.8.4.4', ],
-#     options                  => [ 'rotate', 'timeout:2, ],
+#     nameservers => [ '8.8.8.8', '8.8.4.4', ],
+#     options     => [ 'rotate', 'timeout:2, ],
 #   }
 #
-# @example Create resolver config file where a local nameserver is prefered
+# @example Create resolver config file where a local name server is prefered
 #
 #   class { resolv_conf':
 #     nameservers              => [ '8.8.8.8', '8.8.4.4', ],
@@ -25,8 +25,8 @@
 #   }
 #
 # @param nameservers
-#   An array of nameservers that the resolver should query for hostname
-#   lookups. A maximum number of three nameservers can be specified. The
+#   An array of name servers that the resolver should query for hostname
+#   lookups. A maximum number of three name servers can be specified. The
 #   default value is a single element array containing `127.0.0.1`.
 #
 # @param domainname
@@ -55,7 +55,7 @@
 # @param prepend_local_nameserver
 #   A boolean value that determines if a local DNS server should be used
 #   first. Setting this parameter to `true` will add `127.0.0.1` before the
-#   servers given as `nameservers`. The last nameserver is silently ignored
+#   servers given as `nameservers`. The last name server is silently ignored
 #   if this would create a configuration with more than three servers. The
 #   default value is `false`.
 #
@@ -97,8 +97,8 @@ class resolv_conf(
   }
 
   #
-  # Prepend a local nameserver if requested. In this case use only up to two
-  # nameservers from the provided list of servers.
+  # Prepend a local name server if requested. In this case use only up to two
+  # name servers from the provided list of servers.
   #
   $_nameservers = $prepend_local_nameserver ? {
     true    => concat([ '127.0.0.1' ], $nameservers[0,2]),
