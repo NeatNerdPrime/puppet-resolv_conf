@@ -1,3 +1,9 @@
+## 2021-07-09 - Release 2.1.1
+
+### Enhancements
+
+- Fixed typos.
+
 ## 2021-03-04 - Release 2.1.0
 
 ### Enhancements
