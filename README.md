@@ -22,7 +22,7 @@ Manage the `/etc/resolv.conf` on Linux and FreeBSD.
 
 ## Module Description
 
-The module manages the DNS resolver configuration file. It allows setting the values for the `nameserver`, `domain`, `search`, `sortlist` and `options` confguration settings. The following restrictions are enforced by the module:
+The module manages the DNS resolver configuration file. It allows setting the values for the `nameserver`, `domain`, `search`, `sortlist` and `options` configuration settings. The following restrictions are enforced by the module:
 
   * Up to 3 name servers may be listed.
   * Up to 6 items may be included in the search list.
@@ -79,7 +79,7 @@ If your host is based in the `example.net` domain, then a lookup for the hostnam
 
 ### Specify name servers & options
 
-This setup creates a configuration file with the given name servers and will also set additional opions to enable name server rotation and set a specific timeout.
+This setup creates a configuration file with the given name servers and will also set additional options to enable name server rotation and set a specific timeout.
 
 ```puppet
 class { 'resolv_conf':
