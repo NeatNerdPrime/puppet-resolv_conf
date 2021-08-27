@@ -1,3 +1,9 @@
+## 2021-08-27 - Release 2.1.2
+
+### Enhancements
+
+- Allow stdlib 8.0.0
+
 ## 2021-07-09 - Release 2.1.1
 
 ### Enhancements
