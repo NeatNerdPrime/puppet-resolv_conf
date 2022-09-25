@@ -75,7 +75,7 @@
 #   The file mode of the file `/etc/resolv.conf`. The default is `0644`.
 #
 #
-class resolv_conf(
+class resolv_conf (
   Array[String,0,3]          $nameservers,
   Stdlib::Absolutepath       $resolv_conf_file,
   Array[String,0,6]          $searchlist               = [],
@@ -87,7 +87,6 @@ class resolv_conf(
   Optional[String]           $group                    = undef,
   Optional[Stdlib::Filemode] $mode                     = undef,
 ) {
-
   #
   # The domain and search keywords are mutually exclusive. If more than one
   # instance of these keywords is present, the last instance wins.
@@ -101,7 +100,7 @@ class resolv_conf(
   # name servers from the provided list of servers.
   #
   $_nameservers = $prepend_local_nameserver ? {
-    true    => concat([ '127.0.0.1' ], $nameservers[0,2]),
+    true    => concat(['127.0.0.1'], $nameservers[0,2]),
     default => $nameservers,
   }
 
@@ -114,7 +113,7 @@ class resolv_conf(
       /^reload-period:[0-9]+$/,
       'debug', 'edns0', 'inet6', 'ip6-bytestring', 'ip6-dotint',
       'no-ip6-dotint', 'no-check-names', 'no_tld_query', 'rotate',
-      'single-request', 'single-request-reopen': { }
+      'single-request', 'single-request-reopen': {}
       default: {
         fail("Invalid option: ${option}")
       }
@@ -124,17 +123,19 @@ class resolv_conf(
   #
   # Manage resolv.conf
   #
+  $params = {
+    nameservers => $_nameservers,
+    sortlist    => $sortlist,
+    searchlist  => $searchlist,
+    domainname  => $domainname,
+    options     => $options,
+  }
+
   file { $resolv_conf_file:
     ensure  => file,
     owner   => $owner,
     group   => $group,
     mode    => $mode,
-    content => epp('resolv_conf/resolv.conf.epp', {
-      nameservers => $_nameservers,
-      sortlist    => $sortlist,
-      searchlist  => $searchlist,
-      domainname  => $domainname,
-      options     => $options,
-    }),
+    content => epp('resolv_conf/resolv.conf.epp', $params),
   }
 }
