@@ -56,18 +56,18 @@ class { resolv_conf':
 
 The following parameters are available in the `resolv_conf` class:
 
-* [`nameservers`](#nameservers)
-* [`domainname`](#domainname)
-* [`searchlist`](#searchlist)
-* [`sortlist`](#sortlist)
-* [`options`](#options)
-* [`prepend_local_nameserver`](#prepend_local_nameserver)
-* [`resolv_conf_file`](#resolv_conf_file)
-* [`owner`](#owner)
-* [`group`](#group)
-* [`mode`](#mode)
+* [`nameservers`](#-resolv_conf--nameservers)
+* [`domainname`](#-resolv_conf--domainname)
+* [`searchlist`](#-resolv_conf--searchlist)
+* [`sortlist`](#-resolv_conf--sortlist)
+* [`options`](#-resolv_conf--options)
+* [`prepend_local_nameserver`](#-resolv_conf--prepend_local_nameserver)
+* [`resolv_conf_file`](#-resolv_conf--resolv_conf_file)
+* [`owner`](#-resolv_conf--owner)
+* [`group`](#-resolv_conf--group)
+* [`mode`](#-resolv_conf--mode)
 
-##### <a name="nameservers"></a>`nameservers`
+##### <a name="-resolv_conf--nameservers"></a>`nameservers`
 
 Data type: `Array[String,0,3]`
 
@@ -75,7 +75,7 @@ An array of name servers that the resolver should query for hostname
 lookups. A maximum number of three name servers can be specified. The
 default value is a single element array containing `127.0.0.1`.
 
-##### <a name="domainname"></a>`domainname`
+##### <a name="-resolv_conf--domainname"></a>`domainname`
 
 Data type: `Optional[String]`
 
@@ -83,9 +83,9 @@ A string that is the primary domain of the host. Unqualified lookups will
 append this string to the query host. This parameter cannot be used
 together with `searchlist`.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="searchlist"></a>`searchlist`
+##### <a name="-resolv_conf--searchlist"></a>`searchlist`
 
 Data type: `Array[String,0,6]`
 
@@ -95,7 +95,7 @@ can be specified. This parameter cannot be used together with
 
 Default value: `[]`
 
-##### <a name="sortlist"></a>`sortlist`
+##### <a name="-resolv_conf--sortlist"></a>`sortlist`
 
 Data type: `Array[String,0,10]`
 
@@ -104,7 +104,7 @@ sort the result in case multiple addresses are returned.
 
 Default value: `[]`
 
-##### <a name="options"></a>`options`
+##### <a name="-resolv_conf--options"></a>`options`
 
 Data type: `Array[String]`
 
@@ -118,7 +118,7 @@ the colon. Check the man page `resolv.conf(5)` for details.
 
 Default value: `[]`
 
-##### <a name="prepend_local_nameserver"></a>`prepend_local_nameserver`
+##### <a name="-resolv_conf--prepend_local_nameserver"></a>`prepend_local_nameserver`
 
 Data type: `Boolean`
 
@@ -128,9 +128,9 @@ servers given as `nameservers`. The last name server is silently ignored
 if this would create a configuration with more than three servers. The
 default value is `false`.
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="resolv_conf_file"></a>`resolv_conf_file`
+##### <a name="-resolv_conf--resolv_conf_file"></a>`resolv_conf_file`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -138,28 +138,28 @@ The absolute path of the file to manage. The default is
 `/etc/resolv.conf`. In general it does not make sense to change this
 parameter.
 
-##### <a name="owner"></a>`owner`
+##### <a name="-resolv_conf--owner"></a>`owner`
 
 Data type: `Optional[String]`
 
 The owner of the file `/etc/resolv.conf`. The default is `root`.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="group"></a>`group`
+##### <a name="-resolv_conf--group"></a>`group`
 
 Data type: `Optional[String]`
 
 The group of the file `/etc/resolv.conf`. The default is `root` on Linux
 and `wheel` on FreeBSD.
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="mode"></a>`mode`
+##### <a name="-resolv_conf--mode"></a>`mode`
 
 Data type: `Optional[Stdlib::Filemode]`
 
 The file mode of the file `/etc/resolv.conf`. The default is `0644`.
 
-Default value: ``undef``
+Default value: `undef`
 
