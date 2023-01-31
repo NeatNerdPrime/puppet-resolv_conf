@@ -86,11 +86,12 @@ Default value: `undef`
 
 ##### <a name="-resolv_conf--searchlist"></a>`searchlist`
 
-Data type: `Array[String,0,6]`
+Data type: `Array[String]`
 
-An array of domains that the resolver will search. A maximum of 6 domains
-can be specified. This parameter cannot be used together with
-`domainname`.
+An array of domains that the resolver will search. This parameter cannot
+be used together with `domainname`. The old restriction of six entries
+has been removed. Check your documentation if your operating system
+release supports more than six items.
 
 Default value: `[]`
 

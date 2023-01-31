@@ -218,14 +218,21 @@ describe 'resolv_conf' do
       }
     end
 
-    context "on #{os} with too many searchlist items" do
+    context "on #{os} with more than six searchlist items" do
       let(:facts) { facts }
       let(:params) do
         { searchlist: ['foo', 'bar', 'baz', 'qux', 'quux', 'quuz', 'corge'] }
       end
 
       it {
-        is_expected.to raise_error(Puppet::Error, %r{Evaluation Error})
+        is_expected.to contain_file('/etc/resolv.conf')
+          .with_owner('root')
+          .with_group('root')
+          .with_mode('0644')
+          .with_content(%r{^nameserver 127.0.0.1$})
+          .with_content(%r{^search foo bar baz qux quux quuz corge$})
+          .without_content(%r{^sortlist$})
+          .without_content(%r{^options})
       }
     end
 

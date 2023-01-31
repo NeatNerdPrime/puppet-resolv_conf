@@ -34,9 +34,10 @@
 #   is obsolete and will be removed.
 #
 # @param searchlist
-#   An array of domains that the resolver will search. A maximum of 6 domains
-#   can be specified. This parameter cannot be used together with
-#   `domainname`.
+#   An array of domains that the resolver will search. This parameter cannot
+#   be used together with `domainname`. The old restriction of six entries
+#   has been removed. Check your documentation if your operating system
+#   release supports more than six items.
 #
 # @param sortlist
 #   An array of up to 10 IP/netmask items. These are used by the resolver to
@@ -77,7 +78,7 @@
 class resolv_conf (
   Array[String,0,3]          $nameservers,
   Stdlib::Absolutepath       $resolv_conf_file,
-  Array[String,0,6]          $searchlist               = [],
+  Array[String]              $searchlist               = [],
   Array[String,0,10]         $sortlist                 = [],
   Array[String]              $options                  = [],
   Boolean                    $prepend_local_nameserver = false,
