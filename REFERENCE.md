@@ -79,9 +79,8 @@ default value is a single element array containing `127.0.0.1`.
 
 Data type: `Optional[String]`
 
-A string that is the primary domain of the host. Unqualified lookups will
-append this string to the query host. This parameter cannot be used
-together with `searchlist`.
+A string that is used as a single element `searchlist`. The parameter
+is obsolete and will be removed.
 
 Default value: `undef`
 

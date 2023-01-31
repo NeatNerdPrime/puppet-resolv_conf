@@ -5,9 +5,6 @@
 nameserver <%= $nameserver %>
 <%   } -%>
 <% } -%>
-<% unless empty($domainname) { -%>
-domain <%= $domainname %>
-<% } -%>
 <% unless empty($searchlist) { -%>
 search <%= join($searchlist, ' ') %>
 <% } -%>

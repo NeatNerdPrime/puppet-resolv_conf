@@ -30,9 +30,8 @@
 #   default value is a single element array containing `127.0.0.1`.
 #
 # @param domainname
-#   A string that is the primary domain of the host. Unqualified lookups will
-#   append this string to the query host. This parameter cannot be used
-#   together with `searchlist`.
+#   A string that is used as a single element `searchlist`. The parameter
+#   is obsolete and will be removed.
 #
 # @param searchlist
 #   An array of domains that the resolver will search. A maximum of 6 domains
@@ -96,6 +95,19 @@ class resolv_conf (
   }
 
   #
+  # Use domainname as a single element searchlist
+  #
+  if !empty($searchlist) {
+    $_searchlist = $searchlist
+  }
+  elsif ($domainname =~ NotUndef) {
+    $_searchlist = [$domainname]
+  }
+  else {
+    $_searchlist = []
+  }
+
+  #
   # Prepend a local name server if requested. In this case use only up to two
   # name servers from the provided list of servers.
   #
@@ -126,8 +138,7 @@ class resolv_conf (
   $params = {
     nameservers => $_nameservers,
     sortlist    => $sortlist,
-    searchlist  => $searchlist,
-    domainname  => $domainname,
+    searchlist  => $_searchlist,
     options     => $options,
   }
 
