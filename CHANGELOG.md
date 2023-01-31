@@ -1,3 +1,13 @@
+## 2023-01-31 - Release 2.2.0
+
+### Enhancements
+
+- The parameter `searchlist` allows more than six entries now. The restriction has been removed in glib 2.26. Check the documentation of your operating system release if you can benefit from this enhancement.
+
+### Breaking changes
+
+- The `domain` directive has been obsoleted. A single item search list will be used if the class parameter `domainname` is set. The parameter will be removed in a future release of the module.
+
 ## 2021-08-27 - Release 2.1.2
 
 ### Enhancements
