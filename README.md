@@ -70,7 +70,7 @@ The following configuration will configure a remote name server and use the name
 ```puppet
 class { 'resolv_conf':
   nameservers => [ '9.9.9.9', ],
-  searchlist  => [ $::domain ],
+  searchlist  => [ $facts['networking']['domain'] ],
 }
 ```
 
