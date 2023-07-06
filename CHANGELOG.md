@@ -1,3 +1,14 @@
+## 2023-07-06 - Release 3.0.0
+
+### Breaking changes
+
+- Drop Support for Puppet 6
+
+### Enhancements
+
+- Add support for Puppet 8
+- Add support for Stdlib 9.x
+
 ## 2023-01-31 - Release 2.2.0
 
 ### Enhancements
