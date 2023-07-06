@@ -113,7 +113,7 @@ class resolv_conf (
   # name servers from the provided list of servers.
   #
   $_nameservers = $prepend_local_nameserver ? {
-    true    => concat(['127.0.0.1'], $nameservers[0,2]),
+    true    => ['127.0.0.1'] + $nameservers[0,2],
     default => $nameservers,
   }
 
