@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'resolv_conf' do
@@ -57,7 +59,7 @@ describe 'resolv_conf' do
     context "on #{os} with parameter sortlist" do
       let(:facts) { facts }
       let(:params) do
-        { sortlist: ['foo', 'bar'] }
+        { sortlist: %w[foo bar] }
       end
 
       it {
@@ -203,7 +205,7 @@ describe 'resolv_conf' do
     context "on #{os} with parameter searchlist" do
       let(:facts) { facts }
       let(:params) do
-        { searchlist: ['foo', 'bar'] }
+        { searchlist: %w[foo bar] }
       end
 
       it {
@@ -221,7 +223,7 @@ describe 'resolv_conf' do
     context "on #{os} with more than six searchlist items" do
       let(:facts) { facts }
       let(:params) do
-        { searchlist: ['foo', 'bar', 'baz', 'qux', 'quux', 'quuz', 'corge'] }
+        { searchlist: %w[foo bar baz qux quux quuz corge] }
       end
 
       it {
