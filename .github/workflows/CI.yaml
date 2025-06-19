@@ -16,7 +16,7 @@ on:
 
 jobs:
   checks:
-    name: OpenVox ${{ matrix.puppet_version }}
+    name: OpenVox ${{ matrix.openvox_version }}
     runs-on: ubuntu-latest
 
     strategy:
