@@ -1,3 +1,9 @@
+## 2025-07-14 - Release 3.1.0
+
+### Enhancements
+
+- Add support for OpenVox 8
+
 ## 2023-07-06 - Release 3.0.0
 
 ### Breaking changes
